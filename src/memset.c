@@ -5,5 +5,5 @@ void *ft_memset(void *s, int c, size_t n) {
     for (size_t i = 0; i != n; ++i) {
         str[i] = (unsigned char)c;
     }
-    return str;
+    return (void*) str;
 }
