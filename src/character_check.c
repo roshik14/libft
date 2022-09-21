@@ -19,3 +19,7 @@ int ft_isascii(int c) {
 int ft_isprint(int c) {
     return c > 0x1f && c < 0x7f;
 }
+
+int ft_isspace(int c) {
+    return c == ' ' || c == '\f' || c == '\n' || c == '\r' || c == '\t' || c == '\v';
+}
