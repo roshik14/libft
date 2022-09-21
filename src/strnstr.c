@@ -2,21 +2,17 @@
 #include <stdio.h>
 
 char *ft_strnstr(const char *big, const char *little, size_t len) {
-    if (!ft_strlen(little))
+    if (!ft_strlen(little) || !len)
         return (char*) big;
-    for (size_t i = 0, j = 0; i != len; ++i) {
-        if (big[i] == little[j]) {
-            size_t first = i;
-            size_t second = j;
-            while (big[first] == little[second]) {
-                ++first;
-                ++second;
-            }
-            if (first - i - 1 == ft_strlen(little)) {
-                return (char*)&big[i];
-            }
-            ++j;
-        }
+    size_t sub_len = ft_strlen(little);
+    size_t i = 0;
+    while (*big && i++ < len) {
+        if (!ft_strncmp(big, little, sub_len))
+            return (char*)big;
+        const char *chr = ft_strchr(big, ' ');
+        if (!chr)
+            return NULL;
+        big = chr + 1;
     }
     return NULL;
 }
