@@ -7,7 +7,7 @@ int ft_toupper(int c) {
 }
 
 int ft_tolower(int c) {
-    if (c < 'A' || c > 'z')
+    if (c < 'A' || c > 'Z')
         return c;
     return c + 32;
 }
