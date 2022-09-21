@@ -1,6 +1,6 @@
 #include "libft.h"
 
-char *ft_srrchr(const char *s, int c) {
+char *ft_strrchr(const char *s, int c) {
     char *pointer = NULL;
     char *str = (char*)s;
     while (*str) {
@@ -8,5 +8,7 @@ char *ft_srrchr(const char *s, int c) {
             pointer = str;
         str += 1;
     }
+    if (*str == c)
+        return str;
     return pointer;
 }
