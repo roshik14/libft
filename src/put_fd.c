@@ -28,17 +28,18 @@ void ft_putnbr_fd(int n, int fd) {
     if (!n) {
         char c = n + '0';
         write(fd, &c, sizeof(char));
-    }
-    long num = n;
-    if (num < 0) {
-        write(1, &minus, sizeof(char));
-        num *= -1l;
-    }
-    int len = get_num_len(num);
-    while (num != 0) {
-        char c = num / len + '0';
-        write(fd, &c, sizeof(char));
-        num %= len;
-        len /= 10;
+    } else  {
+        long num = n;
+        if (num < 0) {
+            write(1, &minus, sizeof(char));
+            num *= -1l;
+        }
+        int len = get_num_len(num);
+        while (num != 0) {
+            char c = num / len + '0';
+            write(fd, &c, sizeof(char));
+            num %= len;
+            len /= 10;
+        }
     }
 }
