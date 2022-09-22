@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdlib.h>
 
 static size_t get_delim_len(char const *s, char c) {
     size_t len = 0;
@@ -34,6 +33,7 @@ char **ft_split(char const *s, char c) {
             if (!sub)
                 return NULL;
             splited[splited_index++] = sub;
+            s += len;
         }
     }
     return splited;
