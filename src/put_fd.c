@@ -24,19 +24,19 @@ static size_t get_num_len(long n) {
 }
 
 void ft_putnbr_fd(int n, int fd) {
-    char minus = '-';
-    if (!n) {
-        char c = n + '0';
+    long num = n;
+    if (!num) {
+        char c = num + '0';
         write(fd, &c, sizeof(char));
     } else  {
-        long num = n;
         if (num < 0) {
+            char minus = '-';
             write(1, &minus, sizeof(char));
-            num *= -1l;
+            num *= -1;
         }
         int len = get_num_len(num);
         while (num != 0) {
-            char c = num / len + '0';
+            char c = (num / len) + '0';
             write(fd, &c, sizeof(char));
             num %= len;
             len /= 10;
