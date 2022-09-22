@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdlib.h>
 
 t_list *ft_lstnew(void *content) {
     t_list * lst = ft_calloc(1, sizeof(t_list));
@@ -64,7 +63,8 @@ void ft_lstiter(t_list *lst, void (*f)(void *)) {
 t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *)) {
     t_list *res = NULL;
     while (lst) {
-        res = ft_lstnew(f(lst->current));
+        res = ft_lstnew(f(lst->content));
+        del(lst->content);
         if (!res)
             return NULL;
         lst = lst->next;
