@@ -41,5 +41,9 @@ void ft_putnbr_fd(int n, int fd) {
             num %= len;
             len /= 10;
         }
+        if (!num && len) {
+            char c = '0';
+            write(fd, &c, sizeof(char));
+        }
     }
 }
