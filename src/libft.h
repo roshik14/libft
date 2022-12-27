@@ -53,5 +53,7 @@ void ft_putchar_fd(char c, int fd);
 void ft_putstr_fd(char *s, int fd);
 void ft_putendl_fd(char *s, int fd);
 void ft_putnbr_fd(int n, int fd);
+void ft_put_unbr_fd(unsigned, int fd);
+void ft_put_ulongnbr_fd(unsigned long, int fd);
 
 #endif // SRC_LIBFT_H_
